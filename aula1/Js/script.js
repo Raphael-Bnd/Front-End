@@ -75,3 +75,24 @@ const segundoConst = 'Declaração e atribuição inicial da segundoConst';
 // const segundoConst = 'Segunda declaração e atribuição da segundoConst'; // ERRO POR DECLARAR NOVAMENTE
 console.log('segundoConst:' + segundoConst);
 // segundoConst = 'Terceira atribuição da segundoConst';  // ERRO POR TENTAR REATRIBUIR UMA CONSTANTE
+
+console.log(separador);
+
+var cores = [ // ARRAY
+    { id: 1, nome: 'Amarelo' },
+    { id: 2, nome: 'Verde' },
+    { id: 3, nome: 'Azul' },
+    { id: 4, nome: 'Branco' },
+    { id: 5, nome: 'Preto' }
+];
+var nomesCores = []; // DECLARA OUTRO ARRAY TEMPORARIO
+
+cores.forEach(function (cor) { // PERCORRE O ARRAY "CORES" E PEGA CADA NOME E COLOCAL NO NOVO ARRAY
+    nomesCores.push(cor.nome);
+});
+console.log(nomesCores);
+
+console.log(separador);
+// MESMA COISA QUE ACIMA, SÓ QUE COM ARROW FUNCTION
+const coresNomes = cores.map(cor => cor.nome); 
+console.log(coresNomes); 
