@@ -9,11 +9,10 @@
 
 <body>
     <p>
-        <a id="lnk" href="outra-pagina.html">Link para outra
-            página</a>
+        <a id="lnk" href="outra-pagina.html">Link para outra página</a>
     </p>
     <form action="script.php">
-        <input type="text" name="inpt" id="inpt" />
+        <input id="dialog-confirm" type="text" name="inpt" id="inpt" value="Não inserir informações pessoais!" />
         <input type="submit" name="inpt_sbmt" id="inpt_sbmt" value="Enviar o Formulário" />
     </form>
     <script type="text/javascript">
@@ -26,6 +25,22 @@
         $('#inpt_sbmt').click(function (event) {
             event.preventDefault();
             console.log('Nada aconteceu ao clicar no botão do formulário');
+        });
+        // Alerta ao clicar na caixa do formulario
+        $('#inpt').on('click', function () {
+            alert('Não coloque informações pessoais na caixa de dialogo!');
+        });
+        // Remove as informações do input
+        $('#dialog-confirm').on('click', function () {
+            $('#dialog-confirm').val('');
+        });
+        // Checa se está vazia a caixa, se estiver coloca de volta o texto
+        $(function () {
+            $('#dialog-confirm').blur(function () {
+                if ($(this).val().trim() === "") {
+                    $(this).val('Não coloque informações pessoais na caixa de dialogo!')
+                };
+            });
         });
     </script>
 </body>
