@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 4</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+
+<body onload="alert('Evento disparado no carregamento do body');"> <!--EVENTO DISPARADO NO BODY -->
+
+</body>
+<script type="text/javascript">
+    // window.onload = function () {
+    //     alert('Evento disparado ao final do carregamento da janela (Window.onload)');
+    // } // EVENTO DISPARADO COM JAVASCRIPT PURO
+
+    $(function () { // EVENTO DISPARADO COM JQUERY(É DISPARADO ANTES DE TUDO!)
+        alert('Evento disparado com o Jquery');
+        $('body').append('<div><h1>Titulo da página</h1></div>')
+    });
+</script>
+
+</html>
