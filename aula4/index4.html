@@ -17,12 +17,12 @@
     </form>
     <script type="text/javascript">
         //Click do link
-        $('#lnk').click(function (event) {
+        $('#lnk').click(function () {
             event.preventDefault();
             console.log('Nada aconteceu ao clicar no link');
         });
         //Click do botão do formulário
-        $('#inpt_sbmt').click(function (event) {
+        $('#inpt_sbmt').click(function () {
             event.preventDefault();
             console.log('Nada aconteceu ao clicar no botão do formulário');
         });
@@ -35,12 +35,10 @@
             $('#dialog-confirm').val('');
         });
         // Checa se está vazia a caixa, se estiver coloca de volta o texto
-        $(function () {
-            $('#dialog-confirm').blur(function () {
-                if ($(this).val().trim() === "") {
-                    $(this).val('Não coloque informações pessoais na caixa de dialogo!')
-                };
-            });
+        $('#dialog-confirm').blur(function () {
+            if ($(this).val() === "") {
+                $(this).val('Não coloque informações pessoais na caixa de dialogo!')
+            };
         });
     </script>
 </body>
