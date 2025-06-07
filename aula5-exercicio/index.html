@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Prática Jquery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Titulo muito maneirinho, fera demais cara!</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <img id="img"
+        src="https://dubaitickets.tours/wp-content/uploads/2023/03/img-worlds-of-adventure-dubai-ticket-9-1.jpg"
+        alt="a dubai park image">
+    <div id="divisor">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae modi officia quos, officiis veritatis,
+            perferendis a, ea voluptas nobis totam repudiandae. Nam ducimus ut beatae. Cum rerum libero itaque nisi.</p>
+    </div>
+    <script type="text/javascript">
+        $('#divisor').append("<a id='link_alerta' href='pagina.html'>Exibir alerta</a>");
+        $('#link_alerta').on('click', function () {
+            event.preventDefault();
+            alert('O novo link, inserido com jQuery, foi clicado');
+        })
+    </script>
+</body>
+
+</html>
