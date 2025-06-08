@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX com Jquery</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        var xhttp = new XMLHttpRequest(); // REQUISIÇÃO COM JS PURO
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                //em caso de sucesso
+            }
+        };
+        xhttp.open('GET', 'http://...', true);
+        xhttp.send();
+
+
+        $.ajax({ //REQUISIÇÃO COM AJAX E JQUERY
+            url: '',
+            type: 'get',
+            beforeSend: function () {
+                $('#resultado').html('Carregando...');
+            }
+        })
+            .done(function (result) {
+
+            })
+            .fail(function (jqXHR, textStatus, msg) {
+                console.log('' + msg);
+            });
+    </script>
+</body>
+
+</html>
