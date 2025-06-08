@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rock+Salt&display=swap');
+
 * {
+    font-family: Poppins;
     background-color: rgb(42, 42, 42);
     color: white;
     padding: 0;
@@ -14,7 +17,7 @@
     height: 5ch;
     width: 47ch;
     margin: auto;
-    margin-top: 30ch;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     place-items: center;
@@ -40,6 +43,7 @@
 }
 
 #btn:hover {
+    border: 3px solid #0b49e5;
     background-color: #1757f7;
     color: rgb(255, 255, 255);
     transition: 300ms ease;
@@ -53,18 +57,80 @@
 #cep:focus {
     outline: 2px solid #ffffff;
     border: 2px solid #0040DD;
+    transition: 300ms ease;
+}
+
+#cep:not(:focus) {
+    transition: 500ms ease;
+}
+
+#erro {
+    background-color: transparent;
 }
 
 #resultado {
     margin: auto;
-    margin-top: 20px;
+    margin-top: 19px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
+    font-size: 27px;
     font-weight: 800;
     background-color: rgba(0, 0, 0, 0.29);
     border-radius: 20px;
-    width: 36ch;
-    height: 15ch;
+    width: 29.5ch;
+    height: 14ch;
+}
+
+#titulo {
+    margin: auto;
+    margin-top: 17ch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    text-align: center;
+}
+
+.loader {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    gap: 5px;
+}
+
+.loader span {
+    margin-top: 10px;
+    width: 7px;
+    height: 7px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+.loader span:nth-child(2) {
+    animation-delay: 0.2s;
+    background-color: #ffffff;
+}
+
+.loader span:nth-child(3) {
+    animation-delay: 0.4s;
+    background-color: #ffffff;
+}
+
+@keyframes bounce {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0.6);
+        opacity: 0.5;
+    }
+
+    40% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
 }

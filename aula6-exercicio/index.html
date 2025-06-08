@@ -10,27 +10,51 @@
 </head>
 
 <body>
-
+    <h1 id="titulo">Digite seu CEP:</h1>
     <form>
         <input type="text" id="cep">
         <input type="button" id="btn" value="Pesquisar">
     </form>
-    <div id="resultado"></div>
+    <div id="resultado">
+        <div class="loader">
+            Carregando<span></span><span></span><span></span>
+        </div>
+    </div>
 
     <script type="text/javascript">
         $(function () {
+            $('#resultado').fadeOut()
+            $('#cep').on('input', function () {
+                let valor = $(this).val().replace(/\D/g, '');
+                if (valor.length > 8) valor = valor.slice(0, 8);
+                if (valor.length > 5) valor = valor.slice(0, 5) + '-' + valor.slice(5);
+                $(this).val(valor);
+            });
+
+            $('#cep').on('keydown', function (e) {
+                const pos = this.selectionStart;
+                if (e.key === 'Backspace' && pos === 6) {
+                    e.preventDefault();
+                }
+            });
             $('#btn').on('click', function () {
                 var cep = $('#cep').val();
+                if (cep.length < 9) {
+                    $('#resultado').html('<div id="erro">Erro, CEP inválido.</div>').fadeIn();
+                    return;
+                };
                 $.ajax({
                     url: `https://viacep.com.br/ws/${cep}/json/`,
                     type: 'get',
                     beforeSend: function () {
-                        $("#resultado").html("Carregando...");
+                        $("#resultado").html('<div class="loader">Carregando<span></span><span></span><span></span></div>').fadeIn();
+                        $('#resultado').fadeIn()
                     }
                 })
                     .done(function (result) {
                         console.log(JSON.stringify(result));
-                        $('#resultado').html(`CEP: ${result.cep} <br/> Logradouro: ${result.logradouro} <br/> Bairro: ${result.bairro} <br/> Cidade: ${result.localidade} <br/> Estado: ${result.estado}`)
+                        $('#resultado').html(`CEP: ${result.cep} <br/> Logradouro: ${result.logradouro} <br/> Bairro: ${result.bairro} <br/> Cidade: ${result.localidade} <br/> Estado: ${result.estado}`);
+                        $('#resultado').fadeIn()
                     })
                     .fail(function (xhr, textStatus, msg) {
                         console.log('Ocorreu um erro:' + msg);
